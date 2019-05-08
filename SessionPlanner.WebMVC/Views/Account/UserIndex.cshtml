@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SessionPlanner.WebMVC.Models.RegisterViewModel>
+
+@{
+    ViewBag.Title = "UserIndex";
+}
+
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h2>All Users</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h2>  You must be logged in as "Admin" to view this page. </h2>
+}

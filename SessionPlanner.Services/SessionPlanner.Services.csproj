@@ -54,12 +54,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SessionPlanner.Data\SessionPlanner.Data.csproj">
+      <Project>{415ECFE3-4515-4033-AECB-166E11305496}</Project>
+      <Name>SessionPlanner.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SessionPlanner.Models\SessionPlanner.Models.csproj">
+      <Project>{7C29D177-4AF0-4764-AE5A-52AE26653CEF}</Project>
+      <Name>SessionPlanner.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,9 +49,8 @@ namespace SessionPlanner.WebMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,10 +63,16 @@ namespace SessionPlanner.WebMVC.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email address required for registration")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+
+        [Required(ErrorMessage = "UserName required for registration")]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -75,10 +80,35 @@ namespace SessionPlanner.WebMVC.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        [Required(ErrorMessage = "Please Enter First Name")]
+        public string FirstName { get; set; }
+
+
+        [Required(ErrorMessage = "Please Enter Last Name")]
+        public string LastName { get; set; }
+
+
+        [Display(Name = "Name")]
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
+
+
+        [Required(ErrorMessage = "Phone Number required")]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Contact Number")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

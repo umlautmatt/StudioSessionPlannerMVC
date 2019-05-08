@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNet.Identity
+@if (User.IsInRole("Admin"))
+{
+    
+        <li>@Html.ActionLink("Account Management", "Index", "Account")</li>
+        <li>@Html.ActionLink("Session Management", "Index", "SessionType")</li>
+    
+    
+}
+else
+{
+    
+}

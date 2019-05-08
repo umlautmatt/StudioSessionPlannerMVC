@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SessionPlanner.Data;
 using SessionPlanner.WebMVC.Models;
 
 namespace SessionPlanner.WebMVC.Controllers
@@ -15,6 +18,8 @@ namespace SessionPlanner.WebMVC.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _db = new ApplicationDbContext();
+        private ApplicationUser user = new ApplicationUser();
 
         public ManageController()
         {
@@ -73,6 +78,45 @@ namespace SessionPlanner.WebMVC.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        // GET: Customer/Edit
+        public ActionResult EditUsers()
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            var userID = User.Identity.GetUserId();
+            ApplicationUser user = _db.Users.Find(userID);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            RegisterViewModel model = new RegisterViewModel()
+            {
+                Email = user.Email,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber
+            };
+            return View(model);
+        }
+
+        // POST: Customer/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUsers(ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(user).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(user);
         }
 
         //
