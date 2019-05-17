@@ -71,6 +71,30 @@
     <Compile Include="Migrations\201905081801096_three.Designer.cs">
       <DependentUpon>201905081801096_three.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905101604233_modelUpdated.cs" />
+    <Compile Include="Migrations\201905101604233_modelUpdated.Designer.cs">
+      <DependentUpon>201905101604233_modelUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131359092_datetime.cs" />
+    <Compile Include="Migrations\201905131359092_datetime.Designer.cs">
+      <DependentUpon>201905131359092_datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131817402_session.cs" />
+    <Compile Include="Migrations\201905131817402_session.Designer.cs">
+      <DependentUpon>201905131817402_session.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141545133_datetime1.cs" />
+    <Compile Include="Migrations\201905141545133_datetime1.Designer.cs">
+      <DependentUpon>201905141545133_datetime1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905161757290_price.cs" />
+    <Compile Include="Migrations\201905161757290_price.Designer.cs">
+      <DependentUpon>201905161757290_price.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905162008061_quantity.cs" />
+    <Compile Include="Migrations\201905162008061_quantity.Designer.cs">
+      <DependentUpon>201905162008061_quantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -92,6 +116,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905081801096_three.resx">
       <DependentUpon>201905081801096_three.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905101604233_modelUpdated.resx">
+      <DependentUpon>201905101604233_modelUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131359092_datetime.resx">
+      <DependentUpon>201905131359092_datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131817402_session.resx">
+      <DependentUpon>201905131817402_session.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141545133_datetime1.resx">
+      <DependentUpon>201905141545133_datetime1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905161757290_price.resx">
+      <DependentUpon>201905161757290_price.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905162008061_quantity.resx">
+      <DependentUpon>201905162008061_quantity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

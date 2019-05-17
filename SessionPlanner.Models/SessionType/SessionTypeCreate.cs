@@ -5,22 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SessionPlanner.Data
+namespace SessionPlanner.Models.SessionType
 {
-
-    //CREATE, UPDATE, DELETE ONLY AVAILABLE FOR ADMIN ROLE
-    public class SessionType
+    public class SessionTypeCreate
     {
-        [Key]
-        public int SessionTypeID { get; set; }
-
-
         [Required]
-        public Guid OwnerID { get; set; }
-
-
-        [Required]
-        [Display(Name = "Type Of Session")]
+        [Display(Name = "Name Of Session")]
         public string Name { get; set; }
 
 
@@ -28,10 +18,5 @@ namespace SessionPlanner.Data
         [Range(30, 150, ErrorMessage = "Please enter dollar amount between 30 and 150")]
         [Display(Name = "Price Per Hour")]
         public decimal PricePerHour { get; set; }
-
-
-        //[Required]
-        //public string Length { get; set; }
-
     }
 }

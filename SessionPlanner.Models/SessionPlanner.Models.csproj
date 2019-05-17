@@ -55,6 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionType\SessionTypeDetail.cs" />
+    <Compile Include="SessionType\SessionTypeCreate.cs" />
+    <Compile Include="SessionType\SessionTypeEdit.cs" />
+    <Compile Include="SessionType\SessionTypeListItem.cs" />
+    <Compile Include="Session\SessionCreate.cs" />
+    <Compile Include="Session\SessionDetail.cs" />
+    <Compile Include="Session\SessionEdit.cs" />
+    <Compile Include="Session\SessionListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

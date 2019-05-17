@@ -170,6 +170,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SessionTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,8 +238,21 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Manage\EditUsers.cshtml" />
     <Content Include="Views\Manage\DeleteUser.cshtml" />
-    <Content Include="Views\Account\UserIndex.cshtml" />
+    <Content Include="Views\Manage\UserIndex.cshtml" />
     <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Manage\SeeAllUsers.cshtml" />
+    <Content Include="Views\Manage\UpdateUserFromList.cshtml" />
+    <Content Include="Views\Manage\GetUserDetails.cshtml" />
+    <Content Include="Views\SessionType\Index.cshtml" />
+    <Content Include="Views\SessionType\Create.cshtml" />
+    <Content Include="Views\Session\Edit.cshtml" />
+    <Content Include="Views\Session\Index.cshtml" />
+    <Content Include="Views\Session\Create.cshtml" />
+    <Content Include="Views\Session\Details.cshtml" />
+    <Content Include="Views\Session\Delete.cshtml" />
+    <Content Include="Views\SessionType\Edit.cshtml" />
+    <Content Include="Views\SessionType\Delete.cshtml" />
+    <Content Include="Views\SessionType\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

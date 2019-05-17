@@ -80,13 +80,9 @@ namespace SessionPlanner.WebMVC.Controllers
             return View(model);
         }
 
-        // GET: Customer/Edit
+        // GET: User/Edit
         public ActionResult EditUsers()
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
             var userID = User.Identity.GetUserId();
             ApplicationUser user = _db.Users.Find(userID);
             if (user == null)
@@ -105,7 +101,7 @@ namespace SessionPlanner.WebMVC.Controllers
             return View(model);
         }
 
-        // POST: Customer/Edit
+        // POST: User/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditUsers(ApplicationUser user)
@@ -118,6 +114,104 @@ namespace SessionPlanner.WebMVC.Controllers
             }
             return View(user);
         }
+
+
+        // GET: User/Get All Users
+        public ActionResult SeeAllUsers()
+        {
+                return View(_db.Users.ToList());
+        }
+
+
+        // GET: User/Edit
+        public ActionResult UpdateUserFromList(string id)
+        {
+            //UpdateUserFromListModel model = new UpdateUserFromListModel();
+            var user = UserManager.FindById(id);
+          
+
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            RegisterViewModel model = new RegisterViewModel()
+            {
+                Email = user.Email,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber
+            };
+            return View(model);
+        }
+
+        //
+        //POST: User/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateUserFromList(ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(user).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("SeeAllUsers");
+            }
+            return View(user);
+        }  
+
+
+        //GET:  User/Details
+        public ActionResult GetUserDetails(string id)
+        {
+            var user = UserManager.FindById(id);
+
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            RegisterViewModel model = new RegisterViewModel()
+            {
+                Email = user.Email,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber
+            };
+            return View(model);
+        }
+
+        //GET:  User/Delete
+        public ActionResult DeleteUser(string id)
+        {
+            var user = UserManager.FindById(id);
+
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DeleteUserModel model = new DeleteUserModel()
+            {
+                UserName = user.UserName,
+                FullName = user.FullName
+            };
+           
+            return View(model);
+        }
+
+        // POST: /Users/Delete
+        [HttpPost, ActionName("DeleteUser")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+                ApplicationUser user = _db.Users.Find(id);
+                _db.Users.Remove(user);
+                _db.SaveChanges();
+                return RedirectToAction("SeeAllUsers");
+        }
+
+
+
 
         //
         // POST: /Manage/RemoveLogin

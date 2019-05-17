@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -12,6 +13,25 @@ namespace SessionPlanner.WebMVC.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+    }
+
+    public class UpdateUserFromListModel
+    {
+        public Guid Id { get; set; }
+        [EmailAddress]
+        public string Email  { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+    }
+
+    public class DeleteUserModel
+    {
+        public string UserName { get; set; }
+        public string FullName { get; set; }
     }
 
     public class ManageLoginsViewModel

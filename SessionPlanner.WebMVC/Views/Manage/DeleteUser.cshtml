@@ -1,11 +1,9 @@
-﻿@model SessionPlanner.WebMVC.Models.RegisterViewModel
+﻿@model SessionPlanner.WebMVC.Models.DeleteUserModel
 
 @{
     ViewBag.Title = "DeleteUser";
 }
 
-@if (ViewBag.displayMenu == "Yes")
-{
     <h2>Delete User</h2>
 
     <h3>Are you sure you want to delete this?</h3>
@@ -69,12 +67,8 @@
 
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Back to List", "SeeAllUsers")
             </div>
         }
     </div>
-}
-else
-{
-    <h2>  You must be logged in as "Admin" to view this page. </h2>
-}
+
