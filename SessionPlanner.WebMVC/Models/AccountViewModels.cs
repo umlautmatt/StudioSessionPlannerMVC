@@ -49,7 +49,7 @@ namespace SessionPlanner.WebMVC.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required]
@@ -70,7 +70,7 @@ namespace SessionPlanner.WebMVC.Models
 
 
         [Required(ErrorMessage = "UserName required for registration")]
-        [Display(Name = "UserName")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
 
@@ -88,10 +88,12 @@ namespace SessionPlanner.WebMVC.Models
 
 
         [Required(ErrorMessage = "Please Enter First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
 
         [Required(ErrorMessage = "Please Enter Last Name")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
 

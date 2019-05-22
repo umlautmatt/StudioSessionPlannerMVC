@@ -28,7 +28,7 @@ namespace SessionPlanner.Services
                 SessionTypeID = model.SessionTypeID,
                 StartTime = startDate,
                 EndTime = endDate,
-                CreatedUtc = DateTimeOffset.Now,
+                CreatedUtc = DateTime.Now,
                 Price = (model.EndTime - model.StartTime).Hours * model.PricePerHour
             };
             using (var db = new ApplicationDbContext())
@@ -97,7 +97,7 @@ namespace SessionPlanner.Services
                 entity.SessionTypeID = model.SessionTypeID;
                 entity.StartTime = startDate;
                 entity.EndTime = endDate;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.ModifiedUtc = DateTime.UtcNow;
 
                 return db.SaveChanges() == 1;
             }

@@ -30,7 +30,10 @@ namespace SessionPlanner.WebMVC.Models
 
     public class DeleteUserModel
     {
+        [Display(Name = "Username")]
         public string UserName { get; set; }
+
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
     }
 

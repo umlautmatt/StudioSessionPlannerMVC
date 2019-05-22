@@ -1,17 +1,17 @@
 ﻿@model SessionPlanner.WebMVC.Models.RegisterViewModel
 
 @{
-    ViewBag.Title = "UpdateUserFromList";
+    ViewBag.Title = "Edit User Profile";
 }
 
-<h2>UpdateUserFromList</h2>
+<h2>User Profile</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RegisterViewModel</h4>
+        <h4>Edit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

@@ -39,9 +39,9 @@ namespace SessionPlanner.Data
         [MaxLength(1000, ErrorMessage = "Your special requests are limited to 1000 characters")]
         public string Extras { get; set; }
 
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTime CreatedUtc { get; set; }
 
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTime? ModifiedUtc { get; set; }
 
         public virtual SessionType SessionType { get; set; }
     }

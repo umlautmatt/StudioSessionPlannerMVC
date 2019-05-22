@@ -4,10 +4,10 @@
     ViewBag.Title = "GetUserDetails";
 }
 
-<h2>GetUserDetails</h2>
+<h2>User Details</h2>
 
 <div>
-    <h4>RegisterViewModel</h4>
+    @*<h4>RegisterViewModel</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -41,13 +41,13 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.FullName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FullName)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.PhoneNumber)
@@ -61,5 +61,5 @@
 </div>
 <p>
     @*@Html.ActionLink("Edit", "UpdateUserFromList", new { /* id = Model.PrimaryKey */ }) |*@
-    @Html.ActionLink("Back to List", "SeeAllUsers")
+    @Html.ActionLink("Return To Users", "SeeAllUsers")
 </p>

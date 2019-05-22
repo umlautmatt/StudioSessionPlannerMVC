@@ -5,56 +5,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Booked Sessions </h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Book A New Session", "Create")
 </p>
-<table class="table">
-    <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.SessionID)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Price)*@
-            Total Price
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.SessionID)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-            @*@Html.DisplayFor(modelItem => ((item.EndTime - item.StartTime).Hours) * item.PricePerHour)*@
-        </td>
-        <td>
+
+@foreach (var item in Model)
+{
+
+    <div class="card" style="width: 22.5rem; height: 15rem; text-align:center;">
+        <div class="card-block">
+            <h3 class="card-title">@Html.DisplayFor(model => item.Name)</h3>
+            <p class="card-text">@Html.DisplayFor(model  => item.StartTime)</p>
+            
             @Html.ActionLink("Edit", "Edit", new { id = item.SessionID }) |
             @Html.ActionLink("Details", "Details", new { id = item.SessionID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.SessionID })
-        </td>
-    </tr>
-}
+          
+        </div>
+    </div>
 
-</table>
+
+
+}

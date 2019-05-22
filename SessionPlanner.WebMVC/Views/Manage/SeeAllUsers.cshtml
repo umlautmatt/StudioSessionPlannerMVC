@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<SessionPlanner.Data.ApplicationUser>
 
 @{
-    ViewBag.Title = "SeeAllUsers";
+    ViewBag.Title = "All Users";
 }
 
 @if (User.IsInRole("Admin"))
 {
-    <h2>SeeAllUsers</h2>
+    <h2>All Users</h2>
 
 <table class="table">
     <tr>
@@ -33,7 +33,7 @@
             
             <td>
                 @Html.ActionLink("Edit", "UpdateUserFromList", new { id = item.Id }) |
-                @Html.ActionLink("Details", "GetUserDetails", new { id = item.Id }) |
+                @Html.ActionLink("User Details", "GetUserDetails", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id })
             </td>
         </tr>

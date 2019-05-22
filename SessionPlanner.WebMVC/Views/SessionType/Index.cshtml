@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SessionPlanner.Models.SessionType.SessionTypeListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Session Types";
 }
 
 @if (User.IsInRole("Admin"))
 {
 
-<h2>Index</h2>
+<h2>Session Types</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
