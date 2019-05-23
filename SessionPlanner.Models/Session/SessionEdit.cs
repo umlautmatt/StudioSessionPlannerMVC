@@ -40,6 +40,10 @@ namespace SessionPlanner.Models.Session
         [Display(Name = "End Time")]
         public DateTimeOffset EndTime { get; set; }
 
+        public decimal PricePerHour { get; set; }
+        public decimal Price { get; set; }
+
+
         [Display(Name="Special Requests")]
         public string Extras { get; set; }
     }

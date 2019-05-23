@@ -21,6 +21,7 @@ namespace SessionPlanner.Models
         //public Guid OwnerID { get; set; }
 
         [Display(Name="Start Time")]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM} {0:hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
 
         [Display(Name="End Time")]

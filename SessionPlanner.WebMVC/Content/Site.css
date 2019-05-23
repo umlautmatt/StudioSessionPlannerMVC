@@ -11,6 +11,10 @@
     flex-direction: column;
     justify-content: space-between
 }
+ #studio-row{
+     background-color: lightgreen;
+    border-radius: 1em;
+ }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

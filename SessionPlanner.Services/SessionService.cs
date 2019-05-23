@@ -22,17 +22,21 @@ namespace SessionPlanner.Services
         {
             var startDate = new DateTime(model.StartDay.Year, model.StartDay.Month, model.StartDay.Day, model.StartTime.Hour, model.StartTime.Minute, model.StartTime.Second);
             var endDate = new DateTime(model.EndDay.Year, model.EndDay.Month, model.EndDay.Day, model.EndTime.Hour, model.EndTime.Minute, model.EndTime.Second);
-            var session = new Session()
-            {
-                OwnerID = _userId,
-                SessionTypeID = model.SessionTypeID,
-                StartTime = startDate,
-                EndTime = endDate,
-                CreatedUtc = DateTime.Now,
-                Price = (model.EndTime - model.StartTime).Hours * model.PricePerHour
-            };
+
             using (var db = new ApplicationDbContext())
             {
+                var pricePerHour = db.SessionTypes.Find(model.SessionTypeID).PricePerHour;
+
+                var session = new Session()
+                {
+                    OwnerID = _userId,
+                    SessionTypeID = model.SessionTypeID,
+                    StartTime = startDate,
+                    EndTime = endDate,
+                    CreatedUtc = DateTime.Now,
+                    Price = (model.EndTime - model.StartTime).Hours * pricePerHour
+                };
+
                 db.Sessions.Add(session);
                 return db.SaveChanges() == 1;
             }
@@ -41,7 +45,7 @@ namespace SessionPlanner.Services
 
         public IEnumerable<SessionListItem> GetSessions()
         {
-            
+
             using (var db = new ApplicationDbContext())
             {
                 var query = db.Sessions
@@ -78,7 +82,8 @@ namespace SessionPlanner.Services
                     EndTime = entity.EndTime,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
-                    Extras = entity.Extras
+                    Extras = entity.Extras,
+                    Price = entity.Price
                 };
                 return model;
             }
@@ -98,11 +103,11 @@ namespace SessionPlanner.Services
                 entity.StartTime = startDate;
                 entity.EndTime = endDate;
                 entity.ModifiedUtc = DateTime.UtcNow;
-
+                entity.Price = (model.EndTime - model.StartTime).Hours * model.PricePerHour;
                 return db.SaveChanges() == 1;
+
             }
         }
-
 
         public bool DeleteSession(int sessionID)
         {

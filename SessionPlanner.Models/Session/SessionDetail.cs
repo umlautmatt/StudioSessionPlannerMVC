@@ -29,6 +29,8 @@ namespace SessionPlanner.Models.Session
         [Display(Name = "Date Changed/Updated")]
         public DateTime? ModifiedUtc { get; set; }
 
+        public decimal Price { get; set; }
+
         [Display(Name = "Special Requests")]
         public string Extras { get; set; }
     }
