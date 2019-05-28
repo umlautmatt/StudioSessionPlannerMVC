@@ -74,6 +74,11 @@ hr {
     color: white !important;
 }
 
+table {
+    background-color: lightgreen;
+    border-radius: 1em;
+}
+
 
 
 

@@ -39,6 +39,8 @@ namespace SessionPlanner.WebMVC
                 var user = new ApplicationUser();
                 user.UserName = "admin";
                 user.Email = "admin@email.com";
+                user.FirstName = "admin";
+                user.LastName = "admin";
 
                 string userPWD = "Jp8@2%isg";
 
@@ -48,6 +50,10 @@ namespace SessionPlanner.WebMVC
                 if (chkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
+
+
+                    
+
 
                 }
             }
