@@ -19,10 +19,10 @@
             <h3 class="card-title">@Html.DisplayFor(model => item.Name)</h3>
             <p class="card-text">@Html.DisplayFor(model  => item.StartTime)</p>
             
-            @Html.ActionLink("Edit", "Edit", new { id = item.SessionID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SessionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SessionID })
-          
+            @Html.ActionLink("Edit", "Edit", new { id = item.SessionID }, new { @class = "glyphicon glyphicon-edit"}) |
+           |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SessionID }, new { @class = "glyphicon glyphicon-trash"})
+        <p> @Html.ActionLink("Details", "Details", new { id = item.SessionID }) </p>
         </div>
     </div>
 
